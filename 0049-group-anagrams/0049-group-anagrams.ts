@@ -1,12 +1,14 @@
 function groupAnagrams(strs: string[]): string[][] {
-    let groups = {}
-    strs.forEach(str => {
-        const sortedStr = str.split('').sort().join('')
-        if (groups[sortedStr]) {
-            groups[sortedStr].push(str)
-        } else {
-            groups[sortedStr] = [str]
+    let map={};
+    strs.forEach(s=>{
+        const destr = s.split('').sort().join('');
+        if(map[destr]){
+            map[destr].push(s)
+        }
+        else{
+            map[destr]=[s]
         }
     })
-    return Object.values(groups)
+    
+    return Object.values(map)
 };
